@@ -9,22 +9,21 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3'
 }
 
-task addPerson(type: JavaExec, dependsOn: classes) {
-	if ('addPerson' in gradle.startParameter.taskNames &&
+task addTask(type: JavaExec, dependsOn: classes) {
+	if ('addTask' in gradle.startParameter.taskNames &&
 	    gradle.startParameter.logLevel < LogLevel.QUIET) {
-        println "Note: The task 'addPerson' works best in quiet mode (gradle -q addPerson)"
+        println "Note: The task 'addTask works best in quiet mode (gradle -q addTask)"
     }
     group 			= 'Formats JSON'
     description 	= 'Add a person to an address book'
-    main 			= 'formats.json.AddPerson'
+    main 			= 'formats.json.AddTask'
 	classpath 		= sourceSets.main.runtimeClasspath
 	standardInput	= System.in
 } 
 
-task listPeople(type: JavaExec) {
+task listTask(type: JavaExec) {
     group 			= 'Formats JSON'
-    description 	= 'List the contents of an address book'
-    main 			= 'formats.json.ListPeople'
+    description 	= 'List the contents of the task'
+    main 			= 'formats.json.ListTask'
 	classpath 		= sourceSets.main.runtimeClasspath
 }
-
